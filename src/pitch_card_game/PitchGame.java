@@ -99,7 +99,7 @@ public class PitchGame {
         System.out.println("\nGame Results:");
         for (int i = 0; i < players.size(); i++) {
             Player player = players.get(i);
-            System.out.println("Rank " + (i + 1) + ": " + player.getName() + " - Score: " + player.getScore());
+            System.out.println("Rank " + (i + 1) + ": " + player.getName()  /*" + - Score: " + player.getScore()*/);
         }
 
         System.out.println("\n" + players.get(0).getName() + " wins!");
