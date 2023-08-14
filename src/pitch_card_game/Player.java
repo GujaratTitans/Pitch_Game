@@ -3,33 +3,39 @@ import java.util.*;
 
 public class Player {
 
-	private String name;
-	private List<Card> hand;
+    private final String name;
+    private final List<Card> hand = new ArrayList<>();
+    private int score;
+   
+   public Player(String name) {
+        this.name = name;
+    }
 
-	/**
-	 * 
-	 * @param name
-	 */
-	public Player(String name) {
-		// TODO - implement Player.Player
-		throw new UnsupportedOperationException();
-	}
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public Card playCard(int cardIndex) {
+        if (cardIndex < 0 || cardIndex >= hand.size()) {
+            return null;
+        }
+        return hand.remove(cardIndex);
+    }
 
-	public List<Card> getHand() {
-		return this.hand;
-	}
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * 
-	 * @param deck
-	 */
-	public void drawCard(Deck deck) {
-		// TODO - implement Player.drawCard
-		throw new UnsupportedOperationException();
-	}
+    public List<Card> getHand() {
+        return hand;
+    }
+
+    public int getScore() {
+            return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
 }

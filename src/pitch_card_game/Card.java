@@ -13,27 +13,33 @@ public class Card {
 	private String rank;
 	private String suit;
 
-	/**
-	 * 
-	 * @param rank
-	 * @param suit
-	 */
+	
 	public Card(String rank, String suit) {
-		// TODO - implement Card.Card
-		throw new UnsupportedOperationException();
+		
+		this.suit = suit;
+                this.rank = rank;
 	}
 
 	public String getRank() {
-		return this.rank;
+		return rank;
 	}
+        
+        public void setRank(String rank){
+            this.rank =rank;
+        }
 
 	public String getSuit() {
-		return this.suit;
+		return suit;
 	}
-
+        
+        public void setSuit(String suit){
+            this.suit =suit;
+        }
+        
+        @Override
 	public String toString() {
-		// TODO - implement Card.toString
-		throw new UnsupportedOperationException();
+		
+		return rank + "of" + suit;
 	}
     
 }
