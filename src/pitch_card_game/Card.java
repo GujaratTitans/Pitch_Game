@@ -14,7 +14,7 @@ public class Card {
 	private String suit;
 
 	
-	public Card(String rank, String suit) {
+	public Card(String suit, String rank) {
 		
 		this.suit = suit;
                 this.rank = rank;
@@ -39,7 +39,31 @@ public class Card {
         @Override
 	public String toString() {
 		
-		return rank + "of" + suit;
+		return rank + " of " + suit;
+	}
+
+	public  int getCardScore(){
+		String rank = this.getRank();
+		int playerScore = 0;
+		// Assign scores based on rank
+		if (rank.equals("Ace")) {
+			playerScore += 4;
+		} else if (rank.equals("King")) {
+			playerScore += 3;
+		}
+		else if(rank.equals("Queen")) {
+			playerScore += 2;
+		} else if (rank.equals("Jack")) {
+			playerScore += 1;
+		} else {
+			/**
+			 * Below can be defined to anything, for us, we are making it same value.
+			 */
+			playerScore += Integer.parseInt(rank);
+		}
+
+
+		return playerScore;
 	}
     
 }

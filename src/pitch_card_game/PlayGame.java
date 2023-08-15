@@ -1,3 +1,4 @@
+package pitch_card_game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +21,40 @@ public class PlayGame {
         System.out.print("Enter the number of players: ");
         int numPlayers = scanner.nextInt();
 
-        List<Player> players = new ArrayList<>();
-        for (int i = 0; i < numPlayers; i++) {
-            System.out.print("Enter player " + (i + 1) + "'s name: ");
-            String playerName = scanner.next();
-            players.add(new Player(playerName));
+        System.out.println("Number of cards with each player :");
+
+        int numCards = scanner.nextInt();
+
+        if(numPlayers < 2) {
+            System.out.println("Minimum of 2 players needed to start the game");
+        }
+        else if(numCards<1) {
+            System.out.println("Minimum of 1 card needed to start the game");
+        }
+        else{
+            List<Player> players = new ArrayList<>();
+            for (int i = 0; i < numPlayers; i++) {
+                System.out.print("Enter player " + (i + 1) + "'s name: ");
+                String playerName = scanner.next();
+                players.add(new Player(playerName));
+            }
+
+
+            PitchGame pitchGame = new PitchGame(players);
+            pitchGame.dealInitialCards(numCards);
+            /*
+             * Play for number of rounds.
+             * */
+
+            System.out.println("Displaying players information before starting...");
+            for(Player player : players){
+                System.out.println("\n");
+                System.out.println(player);
+            }
+            pitchGame.play(numCards, numPlayers);
         }
 
-        PitchGame pitchGame = new PitchGame(players);
-        pitchGame.dealInitialCards(6);
-        pitchGame.play();
+
     
     }
     
